@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-a
+  labels:
+    type: frontend
+spec:
+  containers:
+  - name: service2
+    image: service2:v1
+    ports:
+      - containerPort: 80
