@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limited-pod
+  labels:
+    type: frontend
+spec:
+  containers:
+  - name: resource-limited-pod
+    image: service1:v1
+    ports:
+      - containerPort: 80
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128M"
+        cpu: "500m"

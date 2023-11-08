@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+  labels:
+    type: frontend
+spec:
+  containers:
+  - name: env-pod
+    image: service1:v1
+    ports:
+      - containerPort: 80
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128M"
+        cpu: "500m"
+    env:
+    - name: DB_URL
+      value: jdbc:mysql://ronin_db:3306

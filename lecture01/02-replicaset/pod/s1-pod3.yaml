@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: service1
+  name: service1-03
   labels:
     type: frontend
 spec:

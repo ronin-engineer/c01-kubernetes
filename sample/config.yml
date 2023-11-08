@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: $CI_PROJECT_NAME
+  namespace: $NAMESPACE
+data:
+  ENV: "uat"
+  APP_PORT: "8080"
+  JAVA_OPTS: -Xms128m -Xmx256m -javaagent:/app/conf/newrelic.jar -Dnewrelic.environment=uat

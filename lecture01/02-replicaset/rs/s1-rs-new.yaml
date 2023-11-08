@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: service1-rs
+  labels:
+    type: frontend
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels: # 1. must match with pod label 
+      type: frontend
+  
+  template: # template for pods
+    metadata:
+      labels: # 2. pod label
+        type: frontend
+        
+    spec:
+      containers:
+        - name: service1
+          image: service1:v2
+          ports:
+            - containerPort: 80
