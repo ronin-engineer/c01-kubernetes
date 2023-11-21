@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    type: frontend
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
+  selector:
+    matchLabels:
+      type: frontend
+
+  template:
+    metadata:
+      labels:
+        type: frontend
+    
+    spec:
+      containers:
+        - name: service1
+          image: service1:v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "40m"
+            limits:
+              cpu: "80m"

@@ -74,7 +74,7 @@ vim redis-pod.yaml
 ## Copy & paste
 : '
 
-apiapiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: redis
