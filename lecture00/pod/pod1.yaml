@@ -9,4 +9,4 @@ spec:
   - name: service1
     image: service1:v1
     ports:
-      - containerPort: 80
+      - containerPort: 8080

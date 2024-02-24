@@ -2,16 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gw-ingress
+  namespace: default
 spec:
   ingressClassName: nginx
   rules:
-    - host: s1.ronin-engineer.dev
-      http:
-        paths:
-          - backend:
-              service:
-                name: service1
-                port:
-                  number: 80
-            path: /
-            pathType: ImplementationSpecific
+  - host: s1.ronin-engineer.dev
+    http:
+      paths:
+      - backend:
+          service:
+            name: service1
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
